@@ -102,25 +102,34 @@ html, body {
 /* card end */
 }
  
-@media only screen and (min-width: 200px) and (max-width: 980px) {
+@media only screen and (min-width: 200px) and (max-width: 900px) {
 /*BU TANIMLAMA MOBİL İÇİN GEÇERLİDİR*/
 
 /* menu start */
 #menuDiv{
-    /* background-color: rgb(255, 0, 0); */
+    /* height: 120px;
+    width: 50px;
+    background-color: rgb(173, 66, 66); */
+    /* background-color: rgb(182, 155, 155); */
     display: none;
 }
-
+.menu-box{
+    /* margin: 10px;
+    background-color: rgb(238, 134, 134);
+    display: flex; */
+    display: none;
+}
 .navlink{
+    /* text-decoration: none; */
     display: none;
 }
 
 .blueLine{
-display: none;
+  display: none;
 }
 
 .linkbox{
-display: none;
+    display: none;
 }
 /* menu end */
 
@@ -182,4 +191,5 @@ html, body {
     color:rgb(82, 82, 82);
 }
 /* card end */
+
 }
