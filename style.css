@@ -1,19 +1,23 @@
+@media only screen and (min-width:990px) and (max-width:2000px)  { 
+/*BU TANIMLAMA MASA ÜSTÜ BİLGİSAYARLAR İÇİN GEÇERLİDİR*/
+
 /* menu start */
 #menuDiv{
     float: left;
-    background-color: rgb(255, 0, 0);
+    /* background-color: rgb(255, 0, 0); */
     width: 230px;
+    margin-left: 10px;
 }
 
 .navlink{
-    color: rgb(0, 0, 0);
+    color: rgb(114, 114, 114);
     text-decoration: none;
+    font-size: 20px;
 }
 
 .blueLine{
     width: 4px;
     border-left:solid 6px;
-    /* border-top-left-radius: 5px; */
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     border-color: blue;
@@ -27,18 +31,18 @@
     color: blue;
 }
 .linkbox{
-    width: 200px;
-    height: 40px;
-    margin: 10px;
+    width: 250px;
+    height: 50px;
     padding: 10px;
+    margin: 10px;
 }
 /* menu end */
+
 
 /* glider start */
 #slider{
     float: left;
-    background-color: blueviolet;
-    width: 1000px;
+    margin-left: 100px;
 }
 .glide{
     display: flex;
@@ -66,10 +70,116 @@ html, body {
 .glider-item{
     margin: 10px;
 }
+/* glider end */
+ 
+/* card start */
+.card{
+    height: 500px;
+    padding: 10px;
+    border: solid  2px;
+    border-color: rgba(207, 206, 206, 0.787);
+    border-radius: 6px;
+}
+.card-img{
+   height: 250px;
+}
+.card-title{
+    font-size: 18px;
+    padding: 10px;
+    margin: 10px 0px 30px 0px;
+}
+.card-price{
+    background-color: rgba(0, 0, 0, 0.109);
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.card-shipping{
+    padding: 15px 10px 10px 10px;
+    font-size: 15px;
+    color:rgb(82, 82, 82);
+}
+/* card end */
+}
+ 
+@media only screen and (min-width: 200px) and (max-width: 900px) {
+/*BU TANIMLAMA MOBİL İÇİN GEÇERLİDİR*/
 
-.glider-btn-l{
-    width: 30px;
-    background-color: rgb(11, 255, 2);
-    border-radius: 30px 30px 30px 0px;
+/* menu start */
+#menuDiv{
+    /* background-color: rgb(255, 0, 0); */
+    display: none;
+}
+
+.navlink{
+    display: none;
+}
+
+.blueLine{
+display: none;
+}
+
+.linkbox{
+display: none;
+}
+/* menu end */
+
+
+/* glider start */
+#slider{
+    margin: 30px;
+}
+.glide{
+    display: flex;
+    align-items: center;
+}
+* {
+    box-sizing: border-box
+}
+html, body {
+    width: 100%;
+    overflow: hidden;
+}
+.glider-contain {
+    width: 90%;
+    max-width: 997px;
+    margin: 0 auto;
+}
+.glider-slide {
+    min-height: 150px;
+}
+.glider-slide img {
+    width: 100%;
+}
+
+.glider-item{
+    margin: 10px;
 }
 /* glider end */
+ 
+/* card start */
+.card{
+    height: 400px;
+    padding: 10px;
+    border: solid  2px;
+    border-color: rgba(207, 206, 206, 0.787);
+    border-radius: 6px;
+}
+.card-img{
+   height: 200px;
+}
+.card-title{
+    padding: 10px;
+    margin: 10px 0px 30px 0px;
+}
+.card-price{
+    background-color: rgba(0, 0, 0, 0.109);
+    padding: 10px;
+    border-radius: 10px;
+}
+.card-shipping{
+    padding: 15px 10px 10px 10px;
+    color:rgb(82, 82, 82);
+}
+/* card end */
+}
