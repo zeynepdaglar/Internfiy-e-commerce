@@ -1,9 +1,12 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/glide.core.scss">
     <link rel="stylesheet" href="/glide.theme.scss">
     <link rel="stylesheet" href="/style.css">
@@ -12,153 +15,284 @@
   </head>
   <body>
 
-    <div class="container">
+    <div class="container-fluid">
         <header style="padding: 20px;">
-        <h2>Sizin İçin Seçtiklerimiz</h2>
+          <h2>Sizin İçin Seçtiklerimiz</h2>
         </header>
-            <!-- asidebar start -->
-            <div id="menuDiv" class="">
-                <nav>
-                    <div id="linkLine1" class="menu-box" onclick="active(this)">
-                         <div id="link1" class="linkbox">
-                           <a class="navlink" href="#">Size Özel</a>
-                          </div> 
-                    </div>
+        <div class="col-sm-12 d-block d-lg-none">
+             <div id="slider2">
+               <div id="mobilMenuDiv" class="glider-contain">
+                 <div class="glider2">
+                          <div class="glider-item mobil-menu-item"> 
+                            <div id="mobil-linkline1" class="nav-item" onclick="mobilActive(this)">
+                              <a class="nav-link" href="#">Size Özel</a>
+                              <div class="mobilGreyLine"></div>
+                            </div>
+                          </div>
   
-                    <div id="linkline2" class="menu-box" onclick="active(this)">
-                         <div id="link2" class="linkbox"  >
-                           <a class="navlink" href="#">Tamir, Tadilat Gereçleri</a>
-                         </div> 
-                    </div>
+                         <div class="glider-item mobil-menu-item"> 
+                           <div id="mobil-linkline2" class="nav-item" onclick="mobilActive(this)">
+                             <a class="nav-link" href="#">Tamir, Tadiat Gereçleri</a>
+                             <div class="mobilGreyLine"></div>
+                           </div>
+                         </div>
   
-                    <div id="linkline3" class="menu-box"  onclick="active(this)">
-                        <div id="link3" class="linkbox">
-                          <a class="navlink" href="#">Mobilya</a>
-                        </div> 
-                    </div>
-  
-                    <div id="linkline4" class="menu-box"  onclick="active(this)">
-                        <div id="link4" class="linkbox">
-                          <a class="navlink" href="#">Sağlık, Medikal</a>
+                        <div class="glider-item mobil-menu-item"> 
+                          <div id="mobil-linkline3" class="nav-item" onclick="mobilActive(this)">
+                            <a class="nav-link" href="#">Mobilya</a>
+                            <div class="mobilGreyLine"></div>
+                          </div>
                         </div>
-                    </div>
+                        <div class="glider-item mobil-menu-item">
+                          <div id="mobil-linkline4" class="nav-item" onclick="mobilActive(this)">
+                            <a class="nav-link" href="#">Sağlık, Medikal</a>
+                            <div class="mobilGreyLine"></div>
+                          </div>
+                        </div>
   
-                    <div id="linkline5" class="menu-box"  onclick="active(this)">
-                         <div id="link5" class="linkbox">
-                           <a class="navlink" href="#">Dizüstü Bilgisayar (Laptop)</a>
-                         </div> 
-                    </div>
-  
-                    <div id="linkline6" class="menu-box" onclick="active(this)">
-                        <div id="link6" class="linkbox">
-                          <a class="navlink" href="#">Isıtma, Soğutma Sistemi</a>
-                        </div> 
-                    </div>
-                </nav>
-            </div>
-            <!-- asidebar end -->
+                        <div class="glider-item">
+                          <div id="mobil-linkline5" class="nav-item" onclick="mobilActive(this)">
+                            <a class="nav-link" href="#">Dizüstü Bilgisayar (Laptop)</a>
+                            <div class="mobilGreyLine"></div>
+                          </div>
+                        </div>
+                        <div class="glider-item">
+                          <div id="mobil-linkline6" class="nav-item" onclick="mobilActive(this)">
+                            <a class="nav-link" href="#">Isıtma, Soğutma Sistemi</a>
+                            <div class="mobilGreyLine"></div>
+                          </div>
+                        </div>
+                      </ul>
+                 </div>
+                 <div class="glider-btn-l">
+                   <button class="glider-prev">&laquo;</button>
+                 </div>
+                 <button class="glider-next">&raquo;</button>
+     <div class="row">
+        <div class="col-lg-3 d-none d-lg-block">
+                  <!-- asidebar start -->
+          <div id="menuDiv">
+            <nav>
+                <div id="linkLine1" class="menu-box" onclick="active(this)">
+                     <div id="link1" class="linkbox">
+                       <a class="navlink" href="#">Size Özel</a>
+                      </div> 
+                </div>
 
-            <!-- slider start -->
-            <div id="slider">
-              <div class="glider-contain">
-                <div class="glider">
-                    <div class="glider-item">
-                        <div class="card">
-                          <picture>
-                            <img class="card-img" src="https://blog.koctas.com.tr/wp-content/uploads/2018/03/lokma-takimi-nedir.jpg" alt="">
-                          </picture>
-                            <h6 class="card-title">Wisent 56 Parça El Aleti Seti Takım Çantası</h6>
-                            <div class="card-price">159,90 TL</div>
-                            <div class="card-shipping">Ücretsiz Kargo</div>
-                        </div>
+                <div id="linkline2" class="menu-box" onclick="active(this)">
+                     <div id="link2" class="linkbox"  >
+                       <a class="navlink" href="#">Tamir, Tadilat Gereçleri</a>
+                     </div> 
+                </div>
+
+                <div id="linkline3" class="menu-box"  onclick="active(this)">
+                    <div id="link3" class="linkbox">
+                      <a class="navlink" href="#">Mobilya</a>
+                    </div> 
+                </div>
+
+                <div id="linkline4" class="menu-box"  onclick="active(this)">
+                    <div id="link4" class="linkbox">
+                      <a class="navlink" href="#">Sağlık, Medikal</a>
                     </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
-                    <div class="glider-item"> <div class="card"></div> </div>
                 </div>
-                <div class="glider-btn-l">
-                  <button class="glider-prev">&laquo;</button>
+
+                <div id="linkline5" class="menu-box"  onclick="active(this)">
+                     <div id="link5" class="linkbox">
+                       <a class="navlink" href="#">Dizüstü Bilgisayar (Laptop)</a>
+                     </div> 
                 </div>
-                <button class="glider-next">&raquo;</button>
-            </div>
-              </div>
-            <!-- slider end -->
+
+                <div id="linkline6" class="menu-box" onclick="active(this)">
+                    <div id="link6" class="linkbox">
+                      <a class="navlink" href="#">Isıtma, Soğutma Sistemi</a>
+                    </div> 
+                </div>
+            </nav>
         </div>
+        <!-- asidebar end -->
     </div>
 
+    <div class="col-lg-9 d-lg-block">    
+          <!-- slider start -->
+          <div id="slider">
+            <div class="glider-contain">
+              <div class="glider">
+                  <div class="glider-item p-10">
+                      <div class="card">
+                        <picture>
+                          <img class="card-img" src="https://blog.koctas.com.tr/wp-content/uploads/2018/03/lokma-takimi-nedir.jpg" alt="">
+                        </picture>
+                          <h6 class="card-title">Wisent 56 Parça El Aleti Seti Takım Çantası</h6>
+                          <div class="card-price">159,90 TL</div>
+                          <div><button class="btn-add">Sepete Ekle</button></div>
+                         
+                          <div class="card-shipping">Ücretsiz Kargo</div>
+                      </div>
+                  </div>
+                  <div class="glider-item"> <div class="card">1</div> </div>
+                  <div class="glider-item"> <div class="card">2</div> </div>
+                  <div class="glider-item"> <div class="card">3</div> </div>
+                  <div class="glider-item"> <div class="card">4</div> </div>
+                  <div class="glider-item"> <div class="card"></div> </div>
+                  <div class="glider-item"> <div class="card"></div> </div>
+                  <div class="glider-item"> <div class="card"></div> </div>
+                  <div class="glider-item"> <div class="card"></div> </div>
+                  <div class="glider-item"> <div class="card"></div> </div>
+                  <div class="glider-item"> <div class="card"></div> </div>
+                  <div class="glider-item"> <div class="card"></div> </div>
+                  <div class="glider-item"> <div class="card"></div> </div>
+                  <div class="glider-item"> <div class="card"></div> </div>
+                  <div class="glider-item"> <div class="card"></div> </div>
+                  <div class="glider-item"> <div class="card"></div> </div>
+              </div>
+              <div class="glider-btn-l">
+                <button class="glider-prev">&laquo;</button>
+              </div>
+              <button class="glider-next">&raquo;</button>
+          </div>
+            </div>
+          <!-- slider end -->
+      </div>
+  </div>
+          </div>
+        </div>
+    </div>
     <script src="/glider.js"></script>
     <script src="/glide.js"></script>
-    <script>
-            window._ = new Glider(document.querySelector('.glider'), {
-            slidesToShow: 1, //'auto',
-            slidesToScroll: 1,
-            itemWidth: 150,
-            draggable: true,
-            scrollLock: false,
-            dots: '#dots',
-            rewind: true,
-            arrows: {
-                prev: '.glider-prev',
-                next: '.glider-next'
-            },
-            responsive: [
-                {
-                    breakpoint: 800,
-                    settings: {
-                        slidesToScroll: 'auto',
-                        itemWidth: 300,
-                        slidesToShow: 'auto',
-                        exactWidth: true
-                    }
-                },
-                {
-                    breakpoint: 700,
-                    settings: {
-                        slidesToScroll: 2,
-                        slidesToShow: 2,
-                        dots: false,
-                        arrows: false,
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToScroll: 1,
-                        slidesToShow: 1
-                    }
-                },
-                {
-                    breakpoint: 500,
-                    settings: {
-                        slidesToScroll: 1,
-                        slidesToShow: 1,
-                        dots: false,
-                        arrows: false,
-                        scrollLock: true
-                    }
-                }
-            ]
-        });
-    </script>
-    <!-- Optional JavaScript; choose one of the two! -->
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="/index.js"></script>
+  <script>
+          window._ = new Glider(document.querySelector('.glider'), {
+          slidesToShow: 1, //'auto',
+          slidesToScroll: 1,
+          itemWidth: 300,
+          draggable: true,
+          scrollLock: false,
+          dots: '#dots',
+          rewind: true,
+          arrows: {
+              prev: '.glider-prev',
+              next: '.glider-next'
+          },
+          responsive: [
+              {
+                  breakpoint: 800,
+                  settings: {
+                      slidesToScroll: 'auto',
+                      itemWidth: 400,
+                      slidesToShow: 'auto',
+                      exactWidth: true
+                  }
+              },
+              {
+                  breakpoint: 700,
+                  settings: {
+                      slidesToScroll: 3,
+                      slidesToShow: 3,
+                      dots: false,
+                      arrows: false,
+                  }
+              },
+              {
+                  breakpoint: 600,
+                  settings: {
+                      slidesToScroll: 2,
+                      slidesToShow: 2,
+                  }
+              },
+              {
+                  breakpoint: 500,
+                  settings: {
+                      slidesToScroll: 2,
+                      slidesToShow: 2,
+                      dots: false,
+                      arrows: false,
+                      scrollLock: true
+                  }
+              }
+          ]
+      });
+  </script>
+
+<script>
+  window._ = new Glider(document.querySelector('.glider2'), {
+  slidesToShow: 2, //'auto',
+  slidesToScroll: 2,
+  // itemWidth: 250,
+  draggable: true,
+  scrollLock: false,
+  dots: '#dots',
+  rewind: true,
+  arrows: {
+      prev: '.glider-prev',
+      next: '.glider-next'
+  },
+  responsive: [
+      {
+          breakpoint: 800,
+          settings: {
+              slidesToScroll: 4,
+              // itemWidth: 400,
+              slidesToShow: 4,
+              exactWidth: true
+          }
+      },
+      {
+          breakpoint: 700,
+          settings: {
+              slidesToScroll: 3,
+              slidesToShow: 3,
+              dots: false,
+              arrows: false,
+          }
+      },
+      {
+          breakpoint: 600,
+          settings: {
+              slidesToScroll: 3,
+              slidesToShow: 3,
+          }
+      },
+      {
+          breakpoint: 500,
+          settings: {
+              slidesToScroll: 2,
+              slidesToShow: 2,
+              dots: false,
+              arrows: false,
+              scrollLock: true
+          }
+      },
+      {
+          breakpoint: 400,
+          settings: {
+              slidesToScroll: 2,
+              slidesToShow: 2,
+              dots: false,
+              arrows: false,
+              scrollLock: true
+          }
+      },
+      {
+          breakpoint: 200,
+          settings: {
+              slidesToScroll: 1,
+              slidesToShow: 1,
+              dots: false,
+              arrows: false,
+              scrollLock: true
+          }
+      }
+  ]
+});
+</script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
   </body>
 </html>
