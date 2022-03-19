@@ -180,11 +180,7 @@
           var categories;
           var category ={};
           var sizeOzel =[];
-          var tamirTadilat = [];
-          var mobilya = [];
-          var teknoloji =[];
-          var sağlık =[];
-          var isitma=[];
+
             $.get("product-list.json", function(data){
                   for (let index = 0; index < data.responses.length; index++) {
                       categories = data.responses[0][0].params.userCategories;
