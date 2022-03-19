@@ -21,40 +21,9 @@
         </header>
       <!--mobil scroll menu start -->
       <div class="col-sm-12 d-block d-lg-none">
-        <div id="mobilMenuDiv" class="scrollmenu">
-                     <div id="mobil-linkline1" class="nav-item" onclick="mobilActive(this)" style="display: inline-block;">
-                       <a class="nav-link" href="#">Size Özel</a>
-                       <div class="mobilGreyLine"></div>
-                     </div>
-
-                    <div id="mobil-linkline2" class="nav-item" onclick="mobilActive(this)" style="display: inline-block;">
-                      <a class="nav-link" href="#">Tamir, Tadiat Gereçleri</a>
-                      <div class="mobilGreyLine"></div>
-                    </div>
-
-                   <div id="mobil-linkline3" class="nav-item" onclick="mobilActive(this)" style="display: inline-block;">
-                     <a class="nav-link" href="#">Mobilya</a>
-                     <div class="mobilGreyLine"></div>
-                   </div>
-
-                   <div id="mobil-linkline4" class="nav-item" onclick="mobilActive(this)" style="display: inline-block;">
-                     <a class="nav-link" href="#">Sağlık, Medikal</a>
-                     <div class="mobilGreyLine"></div>
-                   </div>
-
-                   <div id="mobil-linkline5" class="nav-item" onclick="mobilActive(this)" style="display: inline-block;">
-                     <a class="nav-link" href="#">Dizüstü Bilgisayar (Laptop)</a>
-                     <div class="mobilGreyLine"></div>
-                   </div>
-
-                   <div id="mobil-linkline6" class="nav-item" onclick="mobilActive(this)" style="display: inline-block;">
-                    <a class="nav-link" href="#">Isıtma, Soğutma Sistemi</a>
-                    <div class="mobilGreyLine"></div>
-                  </div>
-                 </div>
-               </ul>
-          </div>
-       </div>
+        <div id="mobilMenuDiv" class="scrollmenu"></div>
+      </div>
+       <!-- </div> -->
       <!--mobil scroll menu end -->
      <div class="row">
         <div class="col-lg-3 d-none d-lg-block">
@@ -106,22 +75,20 @@
           <div id="slider">
             <div class="glider-contain">
               <div class="glider">
+                  <!-- slider items start -->
                   <div class="glider-item p-10">
                       <div class="card">
-                        <picture>
                           <img class="card-img" src="https://blog.koctas.com.tr/wp-content/uploads/2018/03/lokma-takimi-nedir.jpg" alt="">
-                        </picture>
                           <h6 class="card-title">Wisent 56 Parça El Aleti Seti Takım Çantası</h6>
                           <div class="card-price">159,90 TL</div>
                           <div><button class="btn-add">Sepete Ekle</button></div>
-                         
                           <div class="card-shipping">Ücretsiz Kargo</div>
                       </div>
                   </div>
-                  <div class="glider-item p-10"> <div class="card">1</div> </div>
-                  <div class="glider-item p-10"> <div class="card">2</div> </div>
-                  <div class="glider-item p-10"> <div class="card">3</div> </div>
-                  <div class="glider-item p-10"> <div class="card">4</div> </div>
+                  <div class="glider-item p-10"> <div class="card">1</div></div>
+                  <div class="glider-item p-10"> <div class="card">2</div></div>
+                  <div class="glider-item p-10"> <div class="card">3</div></div>
+                  <div class="glider-item p-10"> <div class="card">4</div></div>
                   <div class="glider-item p-10"> <div class="card"></div> </div>
                   <div class="glider-item p-10"> <div class="card"></div> </div>
                   <div class="glider-item p-10"> <div class="card"></div> </div>
@@ -133,24 +100,27 @@
                   <div class="glider-item p-10"> <div class="card"></div> </div>
                   <div class="glider-item p-10"> <div class="card"></div> </div>
                   <div class="glider-item p-10"> <div class="card"></div> </div>
+                  <!-- slider items end -->
               </div>
-              <div class="glider-btn-l">
-                <button class="glider-prev">&laquo;</button>
+              <!-- glider buttons start-->
+              <div class="">
+                 <button class="glider-prev">&laquo;</button>
               </div>
-              <button class="glider-next">&raquo;</button>
-          </div>
-            </div>
+                 <button class="glider-next">&raquo;</button>
+              </div>
+              <!-- glider nuttons end -->
+        </div>
           <!-- slider end -->
       </div>
+   </div>
   </div>
-          </div>
-        </div>
+</div>
     </div>
     <script src="/glider.js"></script>
     <script src="/glide.js"></script>
     <script src="/index.js"></script>
     
-<!-- product slider start -->
+<!--slider start -->
   <script>
           window._ = new Glider(document.querySelector('.glider'), {
           slidesToShow: 1, //'auto',
@@ -203,8 +173,40 @@
           ]
       });
   </script>
-<!--product slider end  -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<!--slider end  -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $(function (){
+          var categories;
+          var category ={};
+          var sizeOzel =[];
+          var tamirTadilat = [];
+          var mobilya = [];
+          var teknoloji =[];
+          var sağlık =[];
+          var isitma=[];
+            $.get("product-list.json", function(data){
+                  for (let index = 0; index < data.responses.length; index++) {
+                      categories = data.responses[0][0].params.userCategories;
+
+                      for (let index = 0; index < categories.length; index++) {
+                        category = categories[index];
+                        var charIndex = category.lastIndexOf(">");
+                        var categoryName = category.slice(charIndex+1);
+                        var mobilMenu = $("#mobilMenuDiv");
+                        // mobilMenu.append("a").addClass("mobilGreyLine").html(categoryName);
+                        $("#mobilMenuDiv").append('<div class="nav-link inline mobilGreyLine" onclick="mobilActive(this)"><a href="#" class="mobilLink"></a>' + categoryName + '</div>')
+                      }
+
+                      // var products = data.responses[0][0].params.recommendedProducts;
+                      // for (let index = 0; index < products.length; index++) {
+                      //   var product = products[index];
+                      // }
+                  }
+            });
+        });
+
+    </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
