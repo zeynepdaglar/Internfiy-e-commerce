@@ -9,6 +9,7 @@ function active(item){
 }
 
 function mobilActive(item){
+// $("#mobilMenuDiv div").removeClass("mobilBlueLine");
 $("#mobilMenuDiv div").removeClass("mobilBlueLine");
-$(item).find("div").addClass("mobilBlueLine");
+$(item).addClass("mobilBlueLine");
 }
