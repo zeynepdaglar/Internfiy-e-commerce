@@ -97,14 +97,18 @@ html, body {
     /* font-size: larger; */
 }
 
+.mobilLink{
+    color: rgb(114, 114, 114);
+    font-size: 20px;
+    padding-bottom: 20px;
+}
 .mobilGreyLine{
-    border-bottom: solid 2px rgba(207, 206, 206, 0.787);
+    border-bottom: solid 3px rgba(207, 206, 206, 0.787);
 }
-
 .mobilBlueLine{
-    border-bottom: solid 2px blue;
+    border-bottom: solid 3px blue;
+    color: blue;
 }
-
 .scrollmenu{
     overflow: auto; 
     white-space:nowrap;
@@ -112,4 +116,8 @@ html, body {
 }
 .scrollmenu::-webkit-scrollbar {
     display: none;
+}
+
+.inline{
+    display: inline-block;
 }
