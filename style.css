@@ -7,7 +7,7 @@
 .navlink{
     color: rgb(114, 114, 114);
     text-decoration: none;
-    font-size: 30px;
+    font-size: 20px;
 }
 .blueText{
     color: blue;
@@ -22,7 +22,7 @@
 .linkbox{
     padding: 20px;
     margin: 20px;
-    /* width: 200px; */
+    width: 300px;
 }
 .bluebox{
     background-color: rgba(156, 197, 243, 0.356);
@@ -32,7 +32,7 @@
 
 /* glider start */
 #slider{
-    margin: 20px;
+    margin: 30px;
 }
 .glide{
     display: flex;
@@ -96,13 +96,20 @@ html, body {
     text-decoration: none;
     /* font-size: larger; */
 }
-.mobil-menu-item{
-    height: 20px;
-}
+
 .mobilGreyLine{
     border-bottom: solid 2px rgba(207, 206, 206, 0.787);
 }
 
 .mobilBlueLine{
     border-bottom: solid 2px blue;
+}
+
+.scrollmenu{
+    overflow: auto; 
+    white-space:nowrap;
+    margin-bottom: 30px;
+}
+.scrollmenu::-webkit-scrollbar {
+    display: none;
 }
