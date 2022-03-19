@@ -23,50 +23,11 @@
       <div class="col-sm-12 d-block d-lg-none">
         <div id="mobilMenuDiv" class="scrollmenu"></div>
       </div>
-       <!-- </div> -->
       <!--mobil scroll menu end -->
      <div class="row">
         <div class="col-lg-3 d-none d-lg-block">
         <!-- asidebar start -->
-          <div id="menuDiv">
-            <nav>
-                <div id="linkLine1" class="menu-box" onclick="active(this)">
-                     <div id="link1" class="linkbox">
-                       <a class="navlink" href="#">Size Özel</a>
-                      </div> 
-                </div>
-
-                <div id="linkline2" class="menu-box" onclick="active(this)">
-                     <div id="link2" class="linkbox"  >
-                       <a class="navlink" href="#">Tamir, Tadilat Gereçleri</a>
-                     </div> 
-                </div>
-
-                <div id="linkline3" class="menu-box"  onclick="active(this)">
-                    <div id="link3" class="linkbox">
-                      <a class="navlink" href="#">Mobilya</a>
-                    </div> 
-                </div>
-
-                <div id="linkline4" class="menu-box"  onclick="active(this)">
-                    <div id="link4" class="linkbox">
-                      <a class="navlink" href="#">Sağlık, Medikal</a>
-                    </div>
-                </div>
-
-                <div id="linkline5" class="menu-box"  onclick="active(this)">
-                     <div id="link5" class="linkbox">
-                       <a class="navlink" href="#">Dizüstü Bilgisayar (Laptop)</a>
-                     </div> 
-                </div>
-
-                <div id="linkline6" class="menu-box" onclick="active(this)">
-                    <div id="link6" class="linkbox">
-                      <a class="navlink" href="#">Isıtma, Soğutma Sistemi</a>
-                    </div> 
-                </div>
-            </nav>
-        </div>
+          <div id="menuDiv"></div>
         <!-- asidebar end -->
     </div>
 
@@ -176,11 +137,12 @@
 <!--slider end  -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
+        var gliderProductsData;
+
         $(function (){
           var categories;
           var category ={};
           var sizeOzel =[];
-
             $.get("product-list.json", function(data){
                   for (let index = 0; index < data.responses.length; index++) {
                       categories = data.responses[0][0].params.userCategories;
@@ -191,13 +153,15 @@
                         var categoryName = category.slice(charIndex+1);
                         var mobilMenu = $("#mobilMenuDiv");
                         // mobilMenu.append("a").addClass("mobilGreyLine").html(categoryName);
-                        $("#mobilMenuDiv").append('<div class="nav-link inline mobilGreyLine" onclick="mobilActive(this)"><a href="#" class="mobilLink"></a>' + categoryName + '</div>')
+                        $("#mobilMenuDiv").append('<div class="nav-link inline mobilGreyLine" onclick="mobilActive(this)"><a href="#" class="mobilLink"></a>' + categoryName + '</div>');
+              
+                        $("#menuDiv").append('<div class="menu-box" onclick="active(this)"><div id="link1" class="linkbox"><a class="navlink" href="#">' + categoryName + '</a></div></div>')
                       }
-
-                      // var products = data.responses[0][0].params.recommendedProducts;
-                      // for (let index = 0; index < products.length; index++) {
-                      //   var product = products[index];
-                      // }
+                      
+                      gliderProductsData = data.responses[0][0].params.recommendedProducts;
+                      for (let index = 0; index < gliderProductsData.length; index++) {
+                        var product = gliderProductsData[index];
+                      }
                   }
             });
         });
