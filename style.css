@@ -121,3 +121,27 @@ html, body {
 .inline{
     display: inline-block;
 }
+
+/* toast */
+.toast{
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+}
+
+.green{
+    color: green;
+}
+
+.white{
+    color: white;
+}
+.flower-blue{
+    color:cornflowerblue;
+}
+
+.toast-close{
+    background-color: #fff; 
+    font-size: 15px;
+}
