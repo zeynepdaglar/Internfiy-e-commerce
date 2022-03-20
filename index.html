@@ -37,16 +37,6 @@
             <div id="x" class="glider-contain">
               <div id="productslider" class="glider">
                   <!-- slider items start -->
-                  <!-- <div class="glider-item p-10">
-                      <div class="card">
-                          <img class="card-img" src="https://blog.koctas.com.tr/wp-content/uploads/2018/03/lokma-takimi-nedir.jpg" alt="">
-                          <h6 class="card-title">Wisent 56 Parça El Aleti Seti Takım Çantası</h6>
-                          <div class="card-price">159,90 TL</div>
-                          <div class="card-shipping">+ Ücretsiz Kargo</div>
-                          <button type="button" class="btn btn-primary d-block d-lg-none" id="liveToastBtn" onclick="Toast(this)">Sepete Ekle</button>
-                      </div>
-                  </div>
-                  <div class="glider-item p-10"> <div class="card">1</div></div>-->
                   <!-- slider items end -->
               </div>
               <!-- glider buttons start-->
@@ -69,20 +59,20 @@
       <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <!-- <div class="toast-header"> -->
         <!-- </div> -->
-        <div class="toast-body container" style="background-color: black; color: white; border-radius: 10px; padding: 20px;">
+        <div class="toast-body container toast"></div>
           <div class="row">
-            <div class="col-2" style="color: green;">
+            <div class="col-2 green">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
               </svg>
             </div>
-            <div class="col-8">    
+            <div class="col-8 white">    
                Ürün Sepete Eklendi. <br>
-               <span style="color:cornflowerblue">Sepete Git</span> 
+               <span class="flower-blue">Sepete Git</span> 
             </div> 
             <div class="col-2">
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" style="background-color: #fff; font-size: 15px;">
+              <button type="button" class="btn-close toast-close" data-bs-dismiss="toast" aria-label="Close">
               </button>
             </div>
         </div>
@@ -205,7 +195,7 @@
                shippingFree = product.shippingFree;
                var el = $("#productslider").append('<div class="glider-item p-10"><div class="card"><img class="card-img" src="'+ productImage +'" alt=""><h6 class="card-title">'+ productName +'</h6><div class="card-price">'+ productPriceText +'</div><div class="card-shipping">+ Ücretsiz Kargo</div><button type="button" class="btn btn-primary d-block d-lg-none" id="liveToastBtn" onclick="Toast(this)">Sepete Ekle</button></div></div>');
               }
-        }        
+        }
     </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
