@@ -8,12 +8,6 @@ function active(item){
     $(item).find("a").addClass("blueText");
 }
 
-function mobilActive(item){
-// $("#mobilMenuDiv div").removeClass("mobilBlueLine");
-$("#mobilMenuDiv div").removeClass("mobilBlueLine");
-$(item).addClass("mobilBlueLine");
-}
-
 function Toast(item) {
   $(item).empty().append("Ürün Özelliği Seç");
   var toastTrigger = document.getElementById('liveToastBtn')
