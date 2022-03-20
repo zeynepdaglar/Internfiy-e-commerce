@@ -34,10 +34,10 @@
     <div class="col-lg-9">    
           <!-- slider start -->
           <div id="slider">
-            <div class="glider-contain">
-              <div class="glider">
+            <div id="x" class="glider-contain">
+              <div id="productslider" class="glider">
                   <!-- slider items start -->
-                  <div class="glider-item p-10">
+                  <!-- <div class="glider-item p-10">
                       <div class="card">
                           <img class="card-img" src="https://blog.koctas.com.tr/wp-content/uploads/2018/03/lokma-takimi-nedir.jpg" alt="">
                           <h6 class="card-title">Wisent 56 Parça El Aleti Seti Takım Çantası</h6>
@@ -46,13 +46,7 @@
                           <button type="button" class="btn btn-primary d-block d-lg-none" id="liveToastBtn" onclick="Toast(this)">Sepete Ekle</button>
                       </div>
                   </div>
-                  <div class="glider-item p-10"> <div class="card">1</div></div>
-                  <div class="glider-item p-10"> <div class="card">2</div></div>
-                  <div class="glider-item p-10"> <div class="card">3</div></div>
-                  <div class="glider-item p-10"> <div class="card">4</div></div>
-                  <div class="glider-item p-10"> <div class="card">5</div></div>
-                  <div class="glider-item p-10"> <div class="card">6</div></div>
-                  <div class="glider-item p-10"> <div class="card">7</div></div>
+                  <div class="glider-item p-10"> <div class="card">1</div></div>-->
                   <!-- slider items end -->
               </div>
               <!-- glider buttons start-->
@@ -61,7 +55,7 @@
               </div>
                  <button class="glider-next">&raquo;</button>
               </div>
-              <!-- glider nuttons end -->
+              <!-- glider buttons end -->
         </div>
           <!-- slider end -->
       </div>
@@ -75,7 +69,7 @@
       <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <!-- <div class="toast-header"> -->
         <!-- </div> -->
-        <div class="toast-body container" style="background-color: black; color: white;">
+        <div class="toast-body container" style="background-color: black; color: white; border-radius: 10px; padding: 20px;">
           <div class="row">
             <div class="col-2" style="color: green;">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
@@ -85,7 +79,7 @@
             </div>
             <div class="col-8">    
                Ürün Sepete Eklendi. <br>
-               Sepete Git
+               <span style="color:cornflowerblue">Sepete Git</span> 
             </div> 
             <div class="col-2">
               <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" style="background-color: #fff; font-size: 15px;">
@@ -101,7 +95,14 @@
     
 <!--slider start -->
   <script>
-          window._ = new Glider(document.querySelector('.glider'), {
+    myProductGlider = null;
+
+      function createMyGlider() {    
+        /*if (myProductGlider) {
+              myProductGlider.updateControls();
+              return;
+            }*/
+        myProductGlider = new Glider(document.querySelector('.glider'), {
           slidesToShow: 1, //'auto',
           slidesToScroll: 1,
           itemWidth: 300,
@@ -151,39 +152,60 @@
               }
           ]
       });
+    }
   </script>
 <!--slider end  -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         var gliderProductsData =[];
-
+        var categories;
+        var category ={};
+        var products =[];
         $(function (){
-          var categories;
-          var category ={};
-          var sizeOzel =[];
             $.get("product-list.json", function(data){
                   for (let index = 0; index < data.responses.length; index++) {
                       categories = data.responses[0][0].params.userCategories;
 
                       for (let index = 0; index < categories.length; index++) {
-                        category = categories[index];
-                        var charIndex = category.lastIndexOf(">");
-                        var categoryName = category.slice(charIndex+1);
-                        var mobilMenu = $("#mobilMenuDiv");
-                        // mobilMenu.append("a").addClass("mobilGreyLine").html(categoryName);
-                        $("#mobilMenuDiv").append('<div class="nav-link inline mobilGreyLine" onclick="mobilActive(this)"><a href="#" class="mobilLink"></a>' + categoryName + '</div>');
+                          category = categories[index];
+                          var charIndex = category.lastIndexOf(">");
+                          var categoryName = category.slice(charIndex+1);
+                          var mobilMenu = $("#mobilMenuDiv");
+                          $("#mobilMenuDiv").append('<div class="nav-link inline mobilGreyLine" onclick="mobilActive(this,'+index+')"><a href="#" class="mobilLink"></a>' + categoryName + '</div>');
               
-                        $("#menuDiv").append('<div class="menu-box" onclick="active(this)"><div id="link1" class="linkbox"><a class="navlink" href="#">' + categoryName + '</a></div></div>')
+                          $("#menuDiv").append('<div class="menu-box" onclick="active(this,'+ index +')"><div id="link1" class="linkbox"><a class="navlink" href="#">' + categoryName + '</a></div></div>')
                       }
-                      
                       gliderProductsData = data.responses[0][0].params.recommendedProducts;
-                      for (let index = 0; index < gliderProductsData.length; index++) {
-                        var product = gliderProductsData[index];
-                      }
                   }
             });
         });
+        function mobilActive(item, categoryIndex){
+          createHtmlElements(item, categoryIndex);
+          createMyGlider();
+        }
+        function createHtmlElements(item, categoryIndex) { 
+            
+            $("#mobilMenuDiv div").removeClass("mobilBlueLine");
+             $(item).addClass("mobilBlueLine");
 
+             $("#productslider").remove();
+             $("#x").prepend("<div id='productslider' class='glider'></div>");
+             
+             var categoryname = categories[categoryIndex];
+             var products = gliderProductsData[categoryname];
+             var productName;
+             var productImage;
+             var productPriceText;
+             var shippingFree;
+             for (let index = 0; index < products.length; index++) {
+               const product = products[index];
+               productName = product.name;
+               productImage = product.image;
+               productPriceText = product.priceText;
+               shippingFree = product.shippingFree;
+               var el = $("#productslider").append('<div class="glider-item p-10"><div class="card"><img class="card-img" src="'+ productImage +'" alt=""><h6 class="card-title">'+ productName +'</h6><div class="card-price">'+ productPriceText +'</div><div class="card-shipping">+ Ücretsiz Kargo</div><button type="button" class="btn btn-primary d-block d-lg-none" id="liveToastBtn" onclick="Toast(this)">Sepete Ekle</button></div></div>');
+              }
+        }        
     </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
