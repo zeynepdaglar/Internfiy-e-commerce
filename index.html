@@ -42,25 +42,17 @@
                           <img class="card-img" src="https://blog.koctas.com.tr/wp-content/uploads/2018/03/lokma-takimi-nedir.jpg" alt="">
                           <h6 class="card-title">Wisent 56 Parça El Aleti Seti Takım Çantası</h6>
                           <div class="card-price">159,90 TL</div>
-                          <div><button class="btn-add">Sepete Ekle</button></div>
-                          <div class="card-shipping">Ücretsiz Kargo</div>
+                          <div class="card-shipping">+ Ücretsiz Kargo</div>
+                          <button type="button" class="btn btn-primary d-block d-lg-none" id="liveToastBtn" onclick="Toast(this)">Sepete Ekle</button>
                       </div>
                   </div>
                   <div class="glider-item p-10"> <div class="card">1</div></div>
                   <div class="glider-item p-10"> <div class="card">2</div></div>
                   <div class="glider-item p-10"> <div class="card">3</div></div>
                   <div class="glider-item p-10"> <div class="card">4</div></div>
-                  <div class="glider-item p-10"> <div class="card"></div> </div>
-                  <div class="glider-item p-10"> <div class="card"></div> </div>
-                  <div class="glider-item p-10"> <div class="card"></div> </div>
-                  <div class="glider-item p-10"> <div class="card"></div> </div>
-                  <div class="glider-item p-10"> <div class="card"></div> </div>
-                  <div class="glider-item p-10"> <div class="card"></div> </div>
-                  <div class="glider-item p-10"> <div class="card"></div> </div>
-                  <div class="glider-item p-10"> <div class="card"></div> </div>
-                  <div class="glider-item p-10"> <div class="card"></div> </div>
-                  <div class="glider-item p-10"> <div class="card"></div> </div>
-                  <div class="glider-item p-10"> <div class="card"></div> </div>
+                  <div class="glider-item p-10"> <div class="card">5</div></div>
+                  <div class="glider-item p-10"> <div class="card">6</div></div>
+                  <div class="glider-item p-10"> <div class="card">7</div></div>
                   <!-- slider items end -->
               </div>
               <!-- glider buttons start-->
@@ -77,6 +69,32 @@
   </div>
 </div>
     </div>
+
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <!-- <div class="toast-header"> -->
+        <!-- </div> -->
+        <div class="toast-body container" style="background-color: black; color: white;">
+          <div class="row">
+            <div class="col-2" style="color: green;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+              </svg>
+            </div>
+            <div class="col-8">    
+               Ürün Sepete Eklendi. <br>
+               Sepete Git
+            </div> 
+            <div class="col-2">
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" style="background-color: #fff; font-size: 15px;">
+              </button>
+            </div>
+        </div>
+      </div>
+    </div>
+
     <script src="/glider.js"></script>
     <script src="/glide.js"></script>
     <script src="/index.js"></script>
@@ -137,7 +155,7 @@
 <!--slider end  -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
-        var gliderProductsData;
+        var gliderProductsData =[];
 
         $(function (){
           var categories;
