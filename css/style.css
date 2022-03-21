@@ -1,6 +1,5 @@
 /* menu start */
 #menuDiv{
-    /* background-color: rgb(255, 0, 0); */
     margin-left: 10px;
 }
 
@@ -115,7 +114,6 @@ html, body {
 .nav-link{
     color: rgb(114, 114, 114);
     text-decoration: none;
-    /* font-size: larger; */
 }
 
 .mobilLink{
