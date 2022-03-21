@@ -40,9 +40,8 @@
                   <!-- slider items end -->
               </div>
               <!-- glider buttons start-->
-              <div class="">
+              <div id="sliderbtn">
                  <button class="glider-prev">&laquo;</button>
-              </div>
                  <button class="glider-next">&raquo;</button>
               </div>
               <!-- glider buttons end -->
@@ -78,7 +77,6 @@
         </div>
       </div>
     </div>
-
     <script src="/glider.js"></script>
     <script src="/glide.js"></script>
     <script src="/index.js"></script>
@@ -88,10 +86,6 @@
     myProductGlider = null;
 
       function createMyGlider() {    
-        /*if (myProductGlider) {
-              myProductGlider.updateControls();
-              return;
-            }*/
         myProductGlider = new Glider(document.querySelector('.glider'), {
           slidesToShow: 1, //'auto',
           slidesToScroll: 1,
@@ -109,7 +103,7 @@
                   breakpoint: 800,
                   settings: {
                       slidesToScroll: 'auto',
-                      itemWidth: 400,
+                      itemWidth: 300,
                       slidesToShow: 'auto',
                       exactWidth: true
                   }
@@ -170,17 +164,29 @@
             });
         });
         function mobilActive(item, categoryIndex){
-          createHtmlElements(item, categoryIndex);
-          createMyGlider();
-        }
-        function createHtmlElements(item, categoryIndex) { 
-            
-            $("#mobilMenuDiv div").removeClass("mobilBlueLine");
+             $("#mobilMenuDiv div").removeClass("mobilBlueLine");
              $(item).addClass("mobilBlueLine");
+             $("#productslider").remove(); 
+             $("#sliderbtn").remove();        
+             createHtmlElements(item, categoryIndex);
+             createMyGlider();
+        }
+        function active(item, categoryIndex){
+           $("#menuDiv div").removeClass("blueLine");
+           $("#menuDiv div").removeClass("bluebox");
+           $("#menuDiv a").removeClass("blueText");
+           $(item).addClass("blueLine");
+           $(item).find("div").addClass("bluebox");
+           $(item).find("a").addClass("blueText");
+           $("#productslider").remove();
+           $("#sliderbtn").remove();
+           createHtmlElements(item, categoryIndex);
+           createMyGlider();
+        }
 
-             $("#productslider").remove();
-             $("#x").prepend("<div id='productslider' class='glider'></div>");
-             
+        function createHtmlElements(item, categoryIndex) { 
+          $("#x").prepend("<div id='productslider' class='glider'></div>");
+          $("#sliderbtn").prepend("<button class='glider-prev'>&laquo;</button><button class='glider-next'>&raquo;</button>");
              var categoryname = categories[categoryIndex];
              var products = gliderProductsData[categoryname];
              var productName;
