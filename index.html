@@ -7,10 +7,9 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/glide.core.scss">
-    <link rel="stylesheet" href="/glide.theme.scss">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/glider.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/glider.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Segmentify</title>
   </head>
   <body>
@@ -36,24 +35,16 @@
           <div id="slider">
             <div id="x" class="glider-contain">
               <div id="productslider" class="glider">
-                  <!-- slider items start -->
-                  <!-- slider items end -->
               </div>
-              <!-- glider buttons start-->
-              <div id="sliderbtn">
-                 <button class="glider-prev">&laquo;</button>
-                 <button class="glider-next">&raquo;</button>
-              </div>
-              <!-- glider buttons end -->
         </div>
           <!-- slider end -->
       </div>
    </div>
   </div>
 </div>
-    </div>
+</div>
 
-
+<!-- toast start -->
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
       <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <!-- <div class="toast-header"> -->
@@ -61,148 +52,26 @@
         <div class="toast-body container toast"></div>
           <div class="row">
             <div class="col-2 green">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
-              </svg>
+              <i class="bi bi-check-circle checkbox"></i>
             </div>
             <div class="col-8 white">    
                Ürün Sepete Eklendi. <br>
                <span class="flower-blue">Sepete Git</span> 
             </div> 
             <div class="col-2">
-              <button type="button" class="btn-close toast-close" data-bs-dismiss="toast" aria-label="Close">
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
+                <i class="bi bi-x-lg cross"></i>
               </button>
             </div>
         </div>
       </div>
     </div>
-    <script src="/glider.js"></script>
-    <script src="/glide.js"></script>
-    <script src="/index.js"></script>
-    
-<!--slider start -->
-  <script>
-    myProductGlider = null;
+<!-- toast end -->
 
-      function createMyGlider() {    
-        myProductGlider = new Glider(document.querySelector('.glider'), {
-          slidesToShow: 1, //'auto',
-          slidesToScroll: 1,
-          itemWidth: 300,
-          draggable: true,
-          scrollLock: false,
-          dots: '#dots',
-          rewind: true,
-          arrows: {
-              prev: '.glider-prev',
-              next: '.glider-next'
-          },
-          responsive: [
-              {
-                  breakpoint: 800,
-                  settings: {
-                      slidesToScroll: 'auto',
-                      itemWidth: 300,
-                      slidesToShow: 'auto',
-                      exactWidth: true
-                  }
-              },
-              {
-                  breakpoint: 700,
-                  settings: {
-                      slidesToScroll: 3,
-                      slidesToShow: 3,
-                      dots: false,
-                      arrows: false,
-                  }
-              },
-              {
-                  breakpoint: 600,
-                  settings: {
-                      slidesToScroll: 3,
-                      slidesToShow: 3,
-                  }
-              },
-              {
-                  breakpoint: 400,
-                  settings: {
-                      slidesToScroll: 2,
-                      slidesToShow: 2,
-                      dots: false,
-                      arrows: false,
-                      scrollLock: true
-                  }
-              }
-          ]
-      });
-    }
-  </script>
-<!--slider end  -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script>
-        var gliderProductsData =[];
-        var categories;
-        var category ={};
-        var products =[];
-        $(function (){
-            $.get("product-list.json", function(data){
-                  for (let index = 0; index < data.responses.length; index++) {
-                      categories = data.responses[0][0].params.userCategories;
-
-                      for (let index = 0; index < categories.length; index++) {
-                          category = categories[index];
-                          var charIndex = category.lastIndexOf(">");
-                          var categoryName = category.slice(charIndex+1);
-                          var mobilMenu = $("#mobilMenuDiv");
-                          $("#mobilMenuDiv").append('<div class="nav-link inline mobilGreyLine" onclick="mobilActive(this,'+index+')"><a href="#" class="mobilLink"></a>' + categoryName + '</div>');
-              
-                          $("#menuDiv").append('<div class="menu-box" onclick="active(this,'+ index +')"><div id="link1" class="linkbox"><a class="navlink" href="#">' + categoryName + '</a></div></div>')
-                      }
-                      gliderProductsData = data.responses[0][0].params.recommendedProducts;
-                  }
-            });
-        });
-        function mobilActive(item, categoryIndex){
-             $("#mobilMenuDiv div").removeClass("mobilBlueLine");
-             $(item).addClass("mobilBlueLine");
-             $("#productslider").remove(); 
-             $("#sliderbtn").remove();        
-             createHtmlElements(item, categoryIndex);
-             createMyGlider();
-        }
-        function active(item, categoryIndex){
-           $("#menuDiv div").removeClass("blueLine");
-           $("#menuDiv div").removeClass("bluebox");
-           $("#menuDiv a").removeClass("blueText");
-           $(item).addClass("blueLine");
-           $(item).find("div").addClass("bluebox");
-           $(item).find("a").addClass("blueText");
-           $("#productslider").remove();
-           $("#sliderbtn").remove();
-           createHtmlElements(item, categoryIndex);
-           createMyGlider();
-        }
-
-        function createHtmlElements(item, categoryIndex) { 
-          $("#x").prepend("<div id='productslider' class='glider'></div>");
-          $("#sliderbtn").prepend("<button class='glider-prev'>&laquo;</button><button class='glider-next'>&raquo;</button>");
-             var categoryname = categories[categoryIndex];
-             var products = gliderProductsData[categoryname];
-             var productName;
-             var productImage;
-             var productPriceText;
-             var shippingFree;
-             for (let index = 0; index < products.length; index++) {
-               const product = products[index];
-               productName = product.name;
-               productImage = product.image;
-               productPriceText = product.priceText;
-               shippingFree = product.shippingFree;
-               var el = $("#productslider").append('<div class="glider-item p-10"><div class="card"><img class="card-img" src="'+ productImage +'" alt=""><h6 class="card-title">'+ productName +'</h6><div class="card-price">'+ productPriceText +'</div><div class="card-shipping">+ Ücretsiz Kargo</div><button type="button" class="btn btn-primary d-block d-lg-none" id="liveToastBtn" onclick="Toast(this)">Sepete Ekle</button></div></div>');
-              }
-        }
-    </script>
+    <script src="/js/glide.js"></script>
+    <script src="/js/glider.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="/js/index.js"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
