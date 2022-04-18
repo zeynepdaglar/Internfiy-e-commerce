@@ -77,13 +77,20 @@ $(function (){
               var defaultProductName;
               var defaultProductImage;
               var defaultProductPriceText;
-              
+              var defaultshippingFree;
               for (let index = 0; index < defaultProduct.length; index++) {
               const sizeOzelproduct = defaultProduct[index];
               defaultProductName = sizeOzelproduct.name;
               defaultProductImage = sizeOzelproduct.image;
               defaultProductPriceText = sizeOzelproduct.priceText;
-              var el = $("#productslider").append('<div class="glider-item p-10"><div class="card h-100"><img class="card-img" src="'+ defaultProductImage +'" alt=""><h6 class="card-title">'+ defaultProductName +'</h6><div class="card-price">'+ defaultProductPriceText +'</div><div class="card-shipping">+ Ücretsiz Kargo</div><button type="button" class="btn btn-primary d-block d-lg-none" id="liveToastBtn" onclick="Toast(this)">Sepete Ekle</button></div></div>');
+              defaultshippingFree = sizeOzelproduct.params.shippingFee;
+              if (defaultshippingFree = "Free") {
+                  var free = "Ücretsiz Kargo";
+              }
+              else{
+                  free = "";
+              }
+              var el = $("#productslider").append('<div class="glider-item p-10"><div class="card h-100"><img class="card-img" src="'+ defaultProductImage +'" alt=""><h6 class="card-title">'+ defaultProductName +'</h6><div class="card-price">'+ defaultProductPriceText +'</div><div class="card-shipping">+'+ free +'</div><button type="button" class="btn btn-primary d-block d-lg-none" id="liveToastBtn" onclick="Toast(this)">Sepete Ekle</button></div></div>');
              }
              $("#x").append("<div id='sliderbtn' class='d-none d-lg-block'><button class='glider-prev glider-btn-left'><i class='bi bi-chevron-left arrow-icon'></i></button><button class='glider-next glider-btn-right'><i class='bi bi-chevron-right arrow-icon'></i></button></div>");
              createMyGlider();
@@ -126,8 +133,14 @@ function createHtmlElements(item, categoryIndex) {
        productName = product.name;
        productImage = product.image;
        productPriceText = product.priceText;
-       shippingFree = product.shippingFree;
-       var el = $("#productslider").append('<div class="glider-item p-10"><div class="card h-100"><img class="card-img" src="'+ productImage +'" alt=""><h6 class="card-title">'+ productName +'</h6><div class="card-price">'+ productPriceText +'</div><div class="card-shipping">+ Ücretsiz Kargo</div><button type="button" class="btn btn-primary d-block d-lg-none" id="liveToastBtn" onclick="Toast(this)">Sepete Ekle</button></div></div>');
+       shippingFree = product.params.shippingFee;
+       if (shippingFree == "FREE") {
+           var free = "Ücretsiz Kargo";
+       }
+       else{
+           free = "";
+       }
+       var el = $("#productslider").append('<div class="glider-item p-10"><div class="card h-100"><img class="card-img" src="'+ productImage +'" alt=""><h6 class="card-title">'+ productName +'</h6><div class="card-price">'+ productPriceText +'</div><div class="card-shipping">+'+free+'</div><button type="button" class="btn btn-primary d-block d-lg-none" id="liveToastBtn" onclick="Toast(this)">Sepete Ekle</button></div></div>');
     }
 }
 
